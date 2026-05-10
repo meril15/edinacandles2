@@ -1676,3 +1676,21 @@ html {
      hajszálpontosan a menüsáv aljától induljon! */
   scroll-padding-top: var(--dynamic-header-height, 50px);
 }
+/* --- OKOS MENÜ KAPCSOLÓ --- */
+
+/* 1. ASZTALI NÉZET (768px és afelett): TeleportHQ menü elrejtése */
+@media (min-width: 768px) {
+  .navigation-wrapper {
+    display: none !important;
+  }
+}
+
+/* 2. MOBIL NÉZET (767px és alatta): Atelier menü elrejtése, TeleportHQ (mobil) bekapcsolása */
+@media (max-width: 767px) {
+  .atelier-nav {
+    display: none !important;
+  }
+  .navigation-wrapper {
+    display: contents !important;
+  }
+}
