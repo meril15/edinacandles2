@@ -1676,21 +1676,42 @@ html {
      hajszálpontosan a menüsáv aljától induljon! */
   scroll-padding-top: var(--dynamic-header-height, 50px);
 }
-/* --- OKOS MENÜ KAPCSOLÓ --- */
+/* --- JAVÍTOTT OKOS MENÜ KAPCSOLÓ ÉS RÉTEGREND --- */
 
-/* 1. ASZTALI NÉZET (768px és afelett): TeleportHQ menü elrejtése */
+/* 1. ASZTALI NÉZET (768px és afelett): TeleportHQ (mobil) menü elrejtése */
 @media (min-width: 768px) {
-  .navigation-wrapper {
+  /* Csak a legkülső taget rejtjük el, nem az osztályt! */
+  navigation-wrapper {
     display: none !important;
   }
 }
 
-/* 2. MOBIL NÉZET (767px és alatta): Atelier menü elrejtése, TeleportHQ (mobil) bekapcsolása */
+/* 2. MOBIL NÉZET (767px és alatta) */
 @media (max-width: 767px) {
+  /* A te saját asztali menüd elrejtése */
   .atelier-nav {
     display: none !important;
   }
-  .navigation-wrapper {
-    display: contents !important;
+
+  /* A mobil menü szülődobozainak javítása (display: contents hiba kiküszöbölése) */
+  navigation-wrapper,
+  .navigation-container1 {
+    display: block !important;
+    position: relative;
+    z-index: 99999 !important; 
+  }
+
+  /* A menüsáv erőszakos rögzítése a képernyő tetejére, legfelső rétegbe */
+  .navigation-container {
+    position: fixed !important;
+    top: 0;
+    left: 0;
+    width: 100%;
+    z-index: 99999 !important;
+  }
+
+  /* A lenyíló fekete/fehér mobil ablak mindenek felett legyen! */
+  .navigation-mobile-overlay {
+    z-index: 999999 !important;
   }
 }
