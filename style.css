@@ -1676,34 +1676,21 @@ html {
      hajszálpontosan a menüsáv aljától induljon! */
   scroll-padding-top: var(--dynamic-header-height, 50px);
 }
-/* --- JAVÍTOTT OKOS MENÜ KAPCSOLÓ --- */
+/* --- OKOS MENÜ KAPCSOLÓ --- */
 
 /* 1. ASZTALI NÉZET (768px és afelett): TeleportHQ menü elrejtése */
 @media (min-width: 768px) {
-  navigation-wrapper,
   .navigation-wrapper {
     display: none !important;
   }
 }
 
-/* 2. MOBIL NÉZET (767px és alatta): Atelier menü elrejtése, Teleport bekapcsolása */
+/* 2. MOBIL NÉZET (767px és alatta): Atelier menü elrejtése, TeleportHQ (mobil) bekapcsolása */
 @media (max-width: 767px) {
   .atelier-nav {
     display: none !important;
   }
-  
-  /* Kikényszerítjük a megjelenést és a legfelső rétegre rakjuk */
-  navigation-wrapper,
   .navigation-wrapper {
-    display: block !important; 
-    width: 100%;
-    position: relative;
-    z-index: 9999 !important; 
-  }
-  
-  /* Biztosítjuk, hogy a belső menüsáv is látható legyen */
-  .navigation-container {
-    display: flex !important;
-    width: 100%;
+    display: contents !important;
   }
 }
